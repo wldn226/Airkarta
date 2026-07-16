@@ -44,7 +44,6 @@ env.bak/
 venv.bak/
 
 # Backend Model outputs & cache
-backend/model/
 backend/output/
 backend/.cache.sqlite
 
