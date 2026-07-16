@@ -54,23 +54,26 @@ export default function App() {
 
   useEffect(() => {
     if (aktivMenu === "beranda") {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      const elements = document.querySelectorAll(".fade-in-section");
-      elements.forEach((el) => observer.observe(el));
-
-      return () => {
-        elements.forEach((el) => observer.unobserve(el));
-      };
+      if (typeof IntersectionObserver !== "undefined") {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        const elements = document.querySelectorAll(".fade-in-section");
+        elements.forEach((el) => observer.observe(el));
+        return () => {
+          elements.forEach((el) => observer.unobserve(el));
+        };
+      } else {
+        const elements = document.querySelectorAll(".fade-in-section");
+        elements.forEach((el) => el.classList.add("visible"));
+      }
     }
   }, [aktivMenu]);
 
