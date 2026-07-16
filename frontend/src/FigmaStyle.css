@@ -691,22 +691,40 @@ body {
   .polutan-prediksi-grid-figma {
     grid-template-columns: 1fr;
   }
+  .navbar {
+    padding: 1rem 1.5rem !important;
+  }
   .navbar-nav {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 1rem;
   }
-  .hero-text-figma h1 {
-    font-size: 2.5rem;
+  .hero-figma {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
-  .hero-text-figma p {
-    font-size: 1rem;
+  .hero-title-figma {
+    font-size: 2.25rem;
+  }
+  .hero-sub-figma {
+    font-size: 1.1rem;
   }
   .prediksi-header-figma h1 {
-    font-size: 1.25rem !important;
+    font-size: 1.5rem !important;
   }
   .prediksi-header-figma p {
-    font-size: 0.9rem !important;
+    font-size: 1rem !important;
+  }
+  .tentang-section-figma {
+    padding: 2rem 1.5rem;
+  }
+  .tentang-block-figma {
+    padding: 0 1.5rem 4rem 1.5rem;
+  }
+  .prediksi-section-figma {
+    padding: 2rem 1.5rem 0 1.5rem;
   }
   .status-section-figma {
     flex-direction: column;
