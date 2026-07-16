@@ -1,0 +1,786 @@
+/* Figma Overhaul Styles */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.text-blue {
+  color: #0ea5e9;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  align-items: center;
+  background: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+.brand-logo-img {
+  height: 28px;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Dashboard & Hero */
+.dashboard-page {
+  background: #ffffff;
+}
+.hero-figma {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 62px);
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+  overflow: hidden;
+}
+.hero-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.hero-bg-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 132, 199, 0.25);
+  z-index: 1;
+}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-content-figma {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+.hero-title-figma {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+.hero-sub-figma {
+  font-size: 1.5rem;
+  color: #475569;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+.btn-primary-figma {
+  background: #0ea5e9;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-primary-figma:hover {
+  background: #0284c7;
+}
+
+/* Tentang ISPU */
+.tentang-section-figma {
+  padding: 4rem;
+  background: white;
+  border-radius: 32px 32px 0 0;
+  margin-top: -32px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+}
+.tentang-title-figma {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #1e293b;
+}
+.ispu-info-figma {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+.ispu-info-left {
+  flex: 0 0 350px;
+}
+.ispu-board-img {
+  width: 100%;
+  border-radius: 0;
+  object-fit: cover;
+}
+.ispu-info-right {
+  flex: 1;
+}
+.ispu-info-right h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: #1e293b;
+}
+.ispu-info-right p {
+  font-size: 1.25rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* ISPU Categories */
+.tentang-block-figma {
+  padding: 0 4rem 6rem 4rem;
+  background: white;
+}
+.tentang-block-title-figma {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1e293b;
+}
+.ispu-cards-figma {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.ispu-card-figma {
+  flex: 1;
+  border: 3px solid;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.ispu-card-title-figma {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  white-space: pre-line;
+}
+.ispu-card-desc-figma {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Polutan Grid */
+.polutan-grid-figma {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.polutan-card-figma {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+.polutan-icon-circle-figma {
+  background: #7dd3fc;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+.polutan-card-body-figma {
+  background: white;
+  border: 2px solid #7dd3fc;
+  border-radius: 16px;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+.polutan-card-body-figma p {
+  color: #334155;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Meteorologi Grid */
+.tentang-block-sub-figma {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 3rem;
+  font-size: 1.125rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.meteo-grid-figma {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.meteo-col-figma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.meteo-icon-circle-figma {
+  background: #0ea5e9;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.meteo-icon-circle-figma img {
+  width: 44px;
+  height: 44px;
+}
+.meteo-title-figma {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+.meteo-desc-figma {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Prediksi Section */
+.prediksi-section-figma {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem 0 4rem;
+  background: #f8fafc;
+  min-height: calc(100vh - 62px);
+}
+.prediksi-content-figma {
+  flex: 1;
+}
+.empty-state-figma {
+  flex: 1;
+}
+.prediksi-top-bar-figma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.prediksi-top-bar-figma .search-box {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+}
+.prediksi-top-bar-figma select {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  color: #1e293b;
+  outline: none;
+}
+.prediksi-top-bar-figma .prediksi-btn {
+  background: #0ea5e9;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+.prediksi-top-bar-figma .prediksi-btn:hover:not(:disabled) {
+  background: #0284c7;
+}
+.prediksi-top-bar-figma .prediksi-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-back-figma {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.btn-back-figma:hover {
+  background: #f1f5f9;
+}
+
+.hasil-card-figma {
+  background: transparent;
+}
+.info-title-figma {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+/* Status Kualitas Udara */
+.status-section-figma {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+.status-kiri-figma {
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 300px;
+}
+.sk-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+.sk-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+.sk-val {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.status-kanan-figma {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+.status-bar-row {
+  display: flex;
+  gap: 1rem;
+}
+.status-box-top {
+  flex: 1;
+  height: 24px;
+  border-radius: 6px;
+}
+.status-box-bot {
+  flex: 1;
+  height: 24px;
+  border-radius: 6px;
+}
+
+/* Map Section */
+.mt-8 {
+  margin-top: 3rem;
+}
+.map-container-figma {
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Cuaca Section */
+.cuaca-grid-figma {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.cuaca-card-figma {
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.cc-icon {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.cuaca-suhu {
+  background: #fca5a5;
+}
+.cuaca-kelembapan {
+  background: #7dd3fc;
+  color: #0c4a6e;
+}
+.cuaca-angin {
+  background: #5eead4;
+  color: #134e4a;
+}
+.cuaca-hujan {
+  background: #60a5fa;
+}
+.cc-val {
+  font-size: 2.5rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+.cc-key {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Polutan Prediksi */
+.polutan-prediksi-grid-figma {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.pol-pred-card {
+  background: #e0f2fe;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pp-header {
+  font-weight: 800;
+  color: #0284c7;
+  font-size: 1.25rem;
+}
+.pp-body {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.pp-val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+.pp-sat {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+.pp-desc {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Rekomendasi Kesehatan */
+.rek-box-figma {
+  background: #0ea5e9;
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.rek-item-figma {
+  background: white;
+  padding: 1.25rem 2rem;
+  border-radius: 12px;
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* SHAP */
+.shap-subtitle-figma {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #64748b;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+.shap-list-figma {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 800px;
+}
+.shap-row-figma {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.shap-label-figma {
+  width: 120px;
+  font-weight: 800;
+  color: #475569;
+  font-size: 1.1rem;
+}
+.shap-bar-container-figma {
+  flex: 1;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.shap-bar-fill-figma {
+  height: 100%;
+  background: #ef4444;
+  border-radius: 4px;
+}
+.shap-val-figma {
+  width: 80px;
+  text-align: right;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode Overrides for Figma Style */
+[data-theme="dark"] body {
+  background: #0f172a;
+  color: #f8fafc;
+}
+[data-theme="dark"] .dashboard-page,
+[data-theme="dark"] .prediksi-section-figma,
+[data-theme="dark"] .tentang-block-figma,
+[data-theme="dark"] .tentang-section-figma {
+  background: #0f172a;
+  border-color: #1e293b;
+}
+[data-theme="dark"] .navbar {
+  background: #0f172a !important;
+  border-bottom: 1px solid #1e293b;
+  box-shadow: none !important;
+}
+[data-theme="dark"] .ispu-card-figma,
+[data-theme="dark"] .polutan-card-body-figma,
+[data-theme="dark"] .stasiun-select,
+[data-theme="dark"] .stasiun-select option,
+[data-theme="dark"] .rek-item-figma,
+[data-theme="dark"] .btn-back-figma,
+[data-theme="dark"] .pol-pred-card {
+  background: #1e293b;
+  color: #f8fafc;
+}
+[data-theme="dark"] .polutan-card-body-figma,
+[data-theme="dark"] .btn-back-figma {
+  border-color: #334155;
+}
+[data-theme="dark"] .btn-back-figma:hover {
+  background: #334155;
+}
+[data-theme="dark"] .stasiun-select {
+  border-color: #334155;
+}
+[data-theme="dark"] .info-title-figma,
+[data-theme="dark"] .tentang-block-title-figma,
+[data-theme="dark"] .ispu-info-right h3,
+[data-theme="dark"] .meteo-title-figma,
+[data-theme="dark"] .pp-val,
+[data-theme="dark"] .cc-val {
+  color: #f8fafc;
+}
+[data-theme="dark"] .ispu-info-right p,
+[data-theme="dark"] .ispu-card-desc-figma,
+[data-theme="dark"] .polutan-card-body-figma p,
+[data-theme="dark"] .meteo-desc-figma,
+[data-theme="dark"] .pp-sat,
+[data-theme="dark"] .pp-desc,
+[data-theme="dark"] .cc-key,
+[data-theme="dark"] .shap-val-figma,
+[data-theme="dark"] .shap-label-figma,
+[data-theme="dark"] .tentang-block-sub-figma {
+  color: #94a3b8;
+}
+[data-theme="dark"] .shap-bar-container-figma {
+  background: #334155;
+}
+[data-theme="dark"] .status-bar-row .status-box-bot {
+  border-color: #334155 !important;
+}
+[data-theme="dark"] .map-container-figma {
+  border-color: #334155;
+}
+[data-theme="dark"] .empty-state-figma {
+  color: #94a3b8 !important;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .polutan-grid-figma {
+    grid-template-columns: 1fr;
+  }
+  .cuaca-grid-figma {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .polutan-prediksi-grid-figma {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cuaca-grid-figma {
+    grid-template-columns: 1fr;
+  }
+  .polutan-prediksi-grid-figma {
+    grid-template-columns: 1fr;
+  }
+  .navbar-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .hero-text-figma h1 {
+    font-size: 2.5rem;
+  }
+  .hero-text-figma p {
+    font-size: 1rem;
+  }
+  .prediksi-header-figma h1 {
+    font-size: 1.25rem !important;
+  }
+  .prediksi-header-figma p {
+    font-size: 0.9rem !important;
+  }
+  .status-section-figma {
+    flex-direction: column;
+  }
+  .status-kanan-figma {
+    margin-top: 1.5rem;
+    align-items: flex-start;
+  }
+  .ispu-card-figma {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ispu-info-right {
+    margin-top: 1.5rem;
+  }
+  .btn-mulai-figma {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+/* Hover Animations */
+.polutan-card-body-figma,
+.ispu-card-figma,
+.cuaca-card-figma,
+.rek-item-figma,
+.pol-pred-card,
+.meteo-card-figma {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+.polutan-card-body-figma:hover,
+.ispu-card-figma:hover,
+.cuaca-card-figma:hover,
+.rek-item-figma:hover,
+.pol-pred-card:hover,
+.meteo-card-figma:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] .polutan-card-body-figma:hover,
+[data-theme="dark"] .ispu-card-figma:hover,
+[data-theme="dark"] .cuaca-card-figma:hover,
+[data-theme="dark"] .rek-item-figma:hover,
+[data-theme="dark"] .pol-pred-card:hover,
+[data-theme="dark"] .meteo-card-figma:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-left: 1rem;
+}
+.theme-toggle:hover {
+  background: #e2e8f0;
+  transform: scale(1.1);
+}
+[data-theme="dark"] .theme-toggle {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+[data-theme="dark"] .theme-toggle:hover {
+  background: #334155;
+}
