@@ -1557,7 +1557,7 @@ body {
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+@media (max-width: 1200px), (hover: none) {
   .navbar {
     padding: 0 1.25rem;
   }
@@ -1626,7 +1626,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px), (hover: none) {
   .fade-in-section {
     opacity: 1 !important;
     transform: none !important;
