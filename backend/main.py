@@ -13,11 +13,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-FRONTEND_URLS = os.getenv("FRONTEND_URL", "*").split(",")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=FRONTEND_URLS,
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
