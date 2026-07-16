@@ -5,6 +5,9 @@ WORKDIR /app/backend
 # Salin file requirements
 COPY backend/requirements.txt .
 
+# Instal dependensi sistem untuk LightGBM
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
+
 # Instal dependensi Python
 RUN pip install --no-cache-dir -r requirements.txt
 
