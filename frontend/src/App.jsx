@@ -19,12 +19,20 @@ import "./FigmaStyle.css";
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export default function App() {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "dark",
-  );
-  const [aktivMenu, setAktivMenu] = useState(
-    () => localStorage.getItem("aktivMenu") || "beranda",
-  );
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("theme") || "dark";
+    } catch {
+      return "dark";
+    }
+  });
+  const [aktivMenu, setAktivMenu] = useState(() => {
+    try {
+      return localStorage.getItem("aktivMenu") || "beranda";
+    } catch {
+      return "beranda";
+    }
+  });
   const [stasiun, setStasiun] = useState([]);
   const [pilihan, setPilihan] = useState("");
   const [hariIni, setHariIni] = useState(null);
@@ -33,11 +41,15 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {}
   }, [theme]);
 
   useEffect(() => {
-    localStorage.setItem("aktivMenu", aktivMenu);
+    try {
+      localStorage.setItem("aktivMenu", aktivMenu);
+    } catch (e) {}
   }, [aktivMenu]);
 
   useEffect(() => {
