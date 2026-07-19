@@ -26,13 +26,7 @@ export default function App() {
       return "dark";
     }
   });
-  const [aktivMenu, setAktivMenu] = useState(() => {
-    try {
-      return localStorage.getItem("aktivMenu") || "beranda";
-    } catch {
-      return "beranda";
-    }
-  });
+  const [aktivMenu, setAktivMenu] = useState("beranda");
   const [stasiun, setStasiun] = useState([]);
   const [pilihan, setPilihan] = useState("");
   const [hariIni, setHariIni] = useState(null);
@@ -48,11 +42,7 @@ export default function App() {
     } catch (e) {}
   }, [theme]);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem("aktivMenu", aktivMenu);
-    } catch (e) {}
-  }, [aktivMenu]);
+
 
   useEffect(() => {
     if (aktivMenu === "beranda") {
