@@ -36,6 +36,8 @@ export default function App() {
   const [stasiun, setStasiun] = useState([]);
   const [pilihan, setPilihan] = useState("");
   const [hariIni, setHariIni] = useState(null);
+  const [besok, setBesok] = useState(null);
+  const [tabPrediksi, setTabPrediksi] = useState("hari-ini");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -90,10 +92,13 @@ export default function App() {
     setError("");
     setAktivMenu("prediksi");
     try {
-      const r1 = await axios.post(`${API}/prediksi/hari-ini`, {
-        stasiun: pilihan,
-      });
+      const [r1, r2] = await Promise.all([
+        axios.post(`${API}/prediksi/hari-ini`, { stasiun: pilihan }),
+        axios.post(`${API}/prediksi/besok`, { stasiun: pilihan })
+      ]);
       setHariIni(r1.data);
+      setBesok(r2.data);
+      setTabPrediksi("hari-ini");
     } catch (err) {
       const msg =
         err?.response?.data?.detail ||
@@ -460,22 +465,69 @@ export default function App() {
             </div>
             {error && <div className="error-box">{error}</div>}
 
-            {hariIni ? (
+            {hariIni && besok ? (
               <div
                 className="prediksi-content-figma"
                 style={{ animation: "fadeIn 0.5s ease-in" }}
               >
-                <HasilPrediksi
-                  data={hariIni}
-                  label="Udara Jakarta Hari ini"
-                  mapComponent={
-                    <JakartaMapLeaflet
-                      selectedStation={pilihan}
-                      warna={hariIni.warna}
-                      kategori={hariIni.kategori}
-                    />
-                  }
-                />
+                <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginBottom: "2rem" }}>
+                  <button 
+                    onClick={() => setTabPrediksi("hari-ini")}
+                    style={{ 
+                      padding: "0.5rem 1.5rem", 
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                      transition: "all 0.3s",
+                      background: tabPrediksi === "hari-ini" ? "#3b82f6" : "transparent", 
+                      color: tabPrediksi === "hari-ini" ? "white" : "var(--text-color, #1e293b)", 
+                      border: "1px solid #3b82f6" 
+                    }}
+                  >
+                    Hari Ini
+                  </button>
+                  <button 
+                    onClick={() => setTabPrediksi("besok")}
+                    style={{ 
+                      padding: "0.5rem 1.5rem", 
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                      transition: "all 0.3s",
+                      background: tabPrediksi === "besok" ? "#3b82f6" : "transparent", 
+                      color: tabPrediksi === "besok" ? "white" : "var(--text-color, #1e293b)", 
+                      border: "1px solid #3b82f6" 
+                    }}
+                  >
+                    Besok
+                  </button>
+                </div>
+
+                {tabPrediksi === "hari-ini" ? (
+                  <HasilPrediksi
+                    data={hariIni}
+                    label="Udara Jakarta Hari Ini"
+                    mapComponent={
+                      <JakartaMapLeaflet
+                        selectedStation={pilihan}
+                        warna={hariIni.warna}
+                        kategori={hariIni.kategori}
+                      />
+                    }
+                  />
+                ) : (
+                  <HasilPrediksi
+                    data={besok}
+                    label="Udara Jakarta Besok"
+                    mapComponent={
+                      <JakartaMapLeaflet
+                        selectedStation={pilihan}
+                        warna={besok.warna}
+                        kategori={besok.kategori}
+                      />
+                    }
+                  />
+                )}
               </div>
             ) : (
               !loading &&
