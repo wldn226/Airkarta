@@ -5,9 +5,6 @@ export default function FooterApp({ onNavigate }) {
         {/* Brand col */}
         <div className="footer-col">
           <div className="footer-brand">
-            <div className="brand-logo" style={{ width: 26, height: 26 }}>
-              <div className="brand-logo-inner" />
-            </div>
             <span className="brand-text">
               <span style={{ color: "#3b82f6" }}>AIR</span>
               <span style={{ color: "inherit" }}>KARTA</span>
