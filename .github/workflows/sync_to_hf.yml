@@ -18,7 +18,7 @@ jobs:
           HF_SPACE: ${{ secrets.HF_SPACE }}
         run: |
           rm -rf .git
-          git init
+          git init -b main
           git lfs install
           git lfs track "*.pkl"
           git lfs track "*.svg"
@@ -28,4 +28,4 @@ jobs:
           git config user.name "Auto Sync"
           git commit -m "Auto sync to HF"
           git remote add space https://user:$HF_TOKEN@huggingface.co/spaces/$HF_SPACE
-          git push --force space master:main
+          git push --force space main:main
