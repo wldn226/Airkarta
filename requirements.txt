@@ -12,3 +12,6 @@ holidays
 xgboost
 pyarrow
 gradio
+
+spaces
+torch
