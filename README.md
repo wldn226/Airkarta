@@ -1,6 +1,6 @@
----
+﻿---
 title: Airkarta Backend
-emoji: ???
+emoji: 🌍
 colorFrom: blue
 colorTo: indigo
 sdk: gradio
