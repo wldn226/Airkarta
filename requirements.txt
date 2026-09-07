@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+lightgbm
+scikit-learn
+pandas
+numpy
+joblib
+shap
+requests
+python-dotenv
+holidays
+xgboost
+pyarrow
+gradio
